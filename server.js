@@ -1,3 +1,8 @@
+require('dotenv').config();
+
+const PORT = process.env.PORT || 3000;
+const ENV = process.env.ENV || 'development';
+
 const express = require('express');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpack = require('webpack');
@@ -6,7 +11,6 @@ const path = require('path');
 
 const app = express();
 const compiler = webpack(webpackConfig);
-const PORT = process.env.PORT || 3000
 
 app.use(webpackDevMiddleware(compiler, {
   publicPath: '/'
